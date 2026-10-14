@@ -17,6 +17,7 @@ import { sendData } from "../../utils/send-data";
 
 type ClassNames =
   | "container"
+  | "title"
   | "circleContainer"
   | "redCircle"
   | "kanjiSun"
@@ -63,6 +64,7 @@ export const CalculatorPage: React.FC<Props> = (props: Props) => {
           <div className={classes.barSpacer} />
         </div>
         <div className={classes.calculatorInnerContainer}>
+        <h1 className={classes.title}>Noah's Menu</h1>
           <div className={classes.scrollContainer}>
             <div className={classes.mainFoodItems}>
               {FOOD_ITEMS.map((item: FoodItem) => (
@@ -103,6 +105,17 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
     height: "100vh",
     width: "100vw",
     overflow: "hidden",
+  },
+  title: {
+    margin: 0,
+    marginTop: theme.spacing(2),
+    textAlign: "center",
+    color: "#BF2424",
+    fontFamily: '"Noto Serif JP", "Hiragino Mincho ProN", Georgia, serif',
+    fontSize: 48,
+    fontWeight: 900,
+    letterSpacing: 4,
+    textTransform: "uppercase",
   },
   circleContainer: {
     position: "absolute",
