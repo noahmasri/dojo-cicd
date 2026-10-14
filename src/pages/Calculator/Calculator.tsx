@@ -18,6 +18,7 @@ import { sendData } from "../../utils/send-data";
 type ClassNames =
   | "container"
   | "title"
+  | "resetButton"
   | "circleContainer"
   | "redCircle"
   | "kanjiSun"
@@ -39,18 +40,18 @@ type Props = OwnProps;
 export const CalculatorPage: React.FC<Props> = (props: Props) => {
   const { classes } = props;
 
-  const [values, setValues] = useState<
-    { [k in string]: { value: number; kcal: number } }
-  >({});
+  const [values, setValues] = useState<{
+    [k in string]: { value: number; kcal: number };
+  }>({});
 
-  const handleChange = (itemName: string, itemKcal: number) => (
-    value: number
-  ) => {
-    setValues({
-      ...values,
-      [itemName]: { value, kcal: value * itemKcal },
-    });
-  };
+  const handleChange =
+    (itemName: string, itemKcal: number) => (value: number) => {
+      setValues({
+        ...values,
+        [itemName]: { value, kcal: value * itemKcal },
+      });
+    };
+  const handleReset = () => setValues({});
 
   const result = Object.keys(values).reduce((acc: number, itemName: string) => {
     return acc + values[itemName].kcal;
@@ -64,7 +65,7 @@ export const CalculatorPage: React.FC<Props> = (props: Props) => {
           <div className={classes.barSpacer} />
         </div>
         <div className={classes.calculatorInnerContainer}>
-        <h1 className={classes.title}>Noah's Menu</h1>
+          <h1 className={classes.title}>Noah's Menu</h1>
           <div className={classes.scrollContainer}>
             <div className={classes.mainFoodItems}>
               {FOOD_ITEMS.map((item: FoodItem) => (
@@ -82,6 +83,13 @@ export const CalculatorPage: React.FC<Props> = (props: Props) => {
           <div className={classes.buttonContainer}>
             <Button variant="contained" onClick={sendData(result)}>
               {result} Kcal
+            </Button>
+            <Button
+              variant="outlined"
+              className={classes.resetButton}
+              onClick={handleReset}
+            >
+              Reset
             </Button>
           </div>
         </div>
@@ -116,6 +124,9 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
     fontWeight: 900,
     letterSpacing: 4,
     textTransform: "uppercase",
+  },
+  resetButton: {
+    marginLeft: theme.spacing(2),
   },
   circleContainer: {
     position: "absolute",
