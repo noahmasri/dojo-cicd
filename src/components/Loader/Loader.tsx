@@ -3,8 +3,6 @@ import { withStyles } from "@material-ui/core/styles";
 import { CSSProperties } from "@material-ui/styles";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
-import { CustomTheme } from "../../style/theme";
-
 type ClassNames = "container";
 type SizeType = "small" | "medium" | "large";
 interface OwnProps {

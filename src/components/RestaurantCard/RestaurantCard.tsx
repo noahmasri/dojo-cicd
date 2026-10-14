@@ -7,8 +7,6 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 
-import { CustomTheme } from "../../style/theme";
-
 type ClassNames = "container" | "picture" | "restaurantName" | "address";
 interface OwnProps {
   classes: Record<ClassNames, string>;

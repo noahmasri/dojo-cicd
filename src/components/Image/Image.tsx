@@ -1,5 +1,6 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
+import { CreateCSSProperties } from "@material-ui/core/styles/withStyles";
 
 type ClassNames = "container";
 interface OwnProps {
@@ -16,14 +17,14 @@ export const Image: React.FC<Props> = (props: Props) => {
   return <div className={classes.container}></div>;
 };
 
-const styles = (): Record<ClassNames, any> => ({
-  container: (props: Props) => ({
-    background: `url(${props.imgUrl})`,
+const styles = (): Record<ClassNames, CreateCSSProperties<Props>> => ({
+  container: {
+    background: (props: Props) => `url(${props.imgUrl})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
-    height: props.height,
-    width: props.width,
-  }),
+    height: (props: Props) => props.height,
+    width: (props: Props) => props.width,
+  },
 });
 
 export default withStyles(styles)(Image);
