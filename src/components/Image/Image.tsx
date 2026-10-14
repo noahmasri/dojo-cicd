@@ -1,8 +1,6 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 
-import { CustomTheme } from "../../style/theme";
-
 type ClassNames = "container";
 interface OwnProps {
   classes: Record<ClassNames, string>;
@@ -18,14 +16,14 @@ export const Image: React.FC<Props> = (props: Props) => {
   return <div className={classes.container}></div>;
 };
 
-const styles = (theme: CustomTheme): Record<ClassNames, any> => ({
+const styles = (): Record<ClassNames, any> => ({
   container: (props: Props) => ({
     background: `url(${props.imgUrl})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     height: props.height,
-    width: props.width
-  })
+    width: props.width,
+  }),
 });
 
 export default withStyles(styles)(Image);

@@ -14,7 +14,7 @@ interface OwnProps {
 const SIZE_TYPES: { [k in SizeType]: number } = {
   small: 24,
   medium: 48,
-  large: 80
+  large: 80,
 };
 
 type Props = OwnProps;
@@ -24,8 +24,8 @@ export const Loader: React.FC<Props> = (props: Props) => {
   return <CircularProgress size={SIZE_TYPES[size]} />;
 };
 
-const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
-  container: {}
+const styles = (): Record<ClassNames, CSSProperties> => ({
+  container: {},
 });
 
 export default withStyles(styles)(Loader);
