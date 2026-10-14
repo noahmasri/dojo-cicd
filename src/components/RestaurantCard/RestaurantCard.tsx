@@ -7,8 +7,6 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 
-import { CustomTheme } from "../../style/theme";
-
 type ClassNames = "container" | "picture" | "restaurantName" | "address";
 interface OwnProps {
   classes: Record<ClassNames, string>;
@@ -47,20 +45,20 @@ export const RestaurantCard: React.FC<Props> = (props: Props) => {
   );
 };
 
-const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
+const styles = (): Record<ClassNames, CSSProperties> => ({
   container: {
     width: 220,
-    textAlign: "left"
+    textAlign: "left",
   },
   picture: {
-    height: 128
+    height: 128,
   },
   restaurantName: {
-    fontSize: 15
+    fontSize: 15,
   },
   address: {
-    fontSize: 10
-  }
+    fontSize: 10,
+  },
 });
 
 export default withStyles(styles)(RestaurantCard);

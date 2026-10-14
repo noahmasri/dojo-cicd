@@ -1,6 +1,6 @@
-import { render } from '@testing-library/react';
-import React from 'react';
-import App from './App';
+import { render } from "@testing-library/react";
+import React from "react";
+import App from "./App";
 
 // jest.mock("mapbox-gl", () => {
 //   return {
@@ -16,7 +16,7 @@ import App from './App';
 //   };
 // });
 
-test('renders App', () => {
+test("renders App", () => {
   const { baseElement } = render(<App />);
   expect(baseElement).toBeDefined();
 });

@@ -30,15 +30,15 @@ export const SearchBar: React.FC<Props> = (props: Props) => {
 const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
   container: {
     display: "flex",
-    marginBottom: theme.spacing(2)
+    marginBottom: theme.spacing(2),
   },
   logoSearch: {
-    width: 45
+    width: 45,
   },
   input: {
     width: "100%",
-    fontSize: 32
-  }
+    fontSize: 32,
+  },
 });
 
 export default withStyles(styles)(SearchBar);

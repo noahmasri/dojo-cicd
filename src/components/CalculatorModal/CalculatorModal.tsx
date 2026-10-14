@@ -30,18 +30,17 @@ type Props = OwnProps;
 export const CalculatorModal: React.FC<Props> = (props: Props) => {
   const { classes, onClose, open } = props;
 
-  const [values, setValues] = useState<
-    { [k in string]: { value: number; kcal: number } }
-  >({});
+  const [values, setValues] = useState<{
+    [k in string]: { value: number; kcal: number };
+  }>({});
 
-  const handleChange = (itemName: string, itemKcal: number) => (
-    value: number
-  ) => {
-    setValues({
-      ...values,
-      [itemName]: { value, kcal: value * itemKcal }
-    });
-  };
+  const handleChange =
+    (itemName: string, itemKcal: number) => (value: number) => {
+      setValues({
+        ...values,
+        [itemName]: { value, kcal: value * itemKcal },
+      });
+    };
 
   const result = Object.keys(values).reduce((acc: number, itemName: string) => {
     return acc + values[itemName].kcal;
@@ -80,22 +79,22 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
   mainFoodItems: {
     display: "flex",
     flexWrap: "wrap",
-    justifyContent: "space-evenly"
+    justifyContent: "space-evenly",
   },
   closeContainer: {
     display: "flex",
-    justifyContent: "flex-end"
+    justifyContent: "flex-end",
   },
   itemContainer: {
     display: "flex",
     alignItems: "flex-end",
-    margin: theme.spacing(5)
+    margin: theme.spacing(5),
   },
   buttonContainer: {
     display: "flex",
     justifyContent: "center",
-    marginBottom: theme.spacing(3)
-  }
+    marginBottom: theme.spacing(3),
+  },
 });
 
 export default withStyles(styles)(CalculatorModal);
